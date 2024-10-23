@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TypeScript HTML App</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        width: 100vw;
+        height: 100vh;
+        display: block;
+      }
+      /* Pastikan font Darker Grotesque digunakan di sini */
+      body {
+        font-family: "Darker Grotesque"; /* Menentukan font yang ingin digunakan */
+      }
+    </style>
+
+    <!-- CDN Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./src/output.css" rel="stylesheet" />
+
+    <!-- Link google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-black px-4 pt-24">
+    <h1 class="text-6xl font-medium text-white">how can i help you?</h1>
+    <!-- Live2DCubismCore script -->
+    <div class="">
+      <script src="./Core/live2dcubismcore.js"></script>
+      <!-- Build script -->
+      <script src="./src/main.ts" type="module"></script>
+    </div>
+    <div class="text-white">
+      <h1>Data from Cosmos DB</h1>
+      <ul id="data-list"></ul>
+
+      <script>
+        async function fetchData() {
+          try {
+            const response = await fetch("http://localhost:3001/api/data"); // Ubah ke endpoint backend kamu
+            const data = await response.json();
+            const dataList = document.getElementById("data-list");
+
+            // Tampilkan data dari Cosmos DB ke HTML
+            data.forEach((item) => {
+              const listItem = document.createElement("li");
+              listItem.textContent = `ID: ${item.id}, Name: ${item.category}`;
+              dataList.appendChild(listItem);
+            });
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        }
+
+        // Panggil fetchData ketika halaman dimuat
+        window.onload = fetchData;
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "cubismsdkforweb-5-r.1",
+  "version": "1.0.0",
+  "description": "[English](README.md) / [日本語](README.ja.md)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node copy_resources.js && vite build --mode development",
+    "serve": "vite preview --port 5000 --host",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "live-server": "^1.2.2",
+    "tailwindcss": "^3.4.14"
+  }
+}
