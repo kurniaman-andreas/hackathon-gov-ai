@@ -9,9 +9,20 @@
    a. source myenv/bin/activate
    b. pip install azure-cognitiveservices-speech
    c. python azure_tts.py
+   d. pip install torch transformers huggingface_hub datasets sentence-transformers faiss-cpu
+   e. pip install bitsandbytes
+   f. python -c "from huggingface_hub.hf_api import HfFolder; HfFolder.save_token('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')"
+   (myenv)
+   g. pip install accelerate
 3. Di terminal 2, pindah direktori cd Samples/TypeScript/Demo :
    a. npm run dev
    b. di browser localhost:5000
+4. Di terminal 3, jalankan backendnya dengan cd backend :
+   a. node index.js (localhost 3001)
+5. Hapus tracking :
+   git rm -r --cached pipeline/myenv/
+   git add .gitignore
+   git commit -m "Ignore pipeline/myenv folder"
 
 # Cubism Web Samples
 
